@@ -65,7 +65,11 @@ export default function Home() {
         </div>
       </section>
 
+  {/* 🎯 AD PLACEMENT 1: Top Banner */}
+      <AdBanner slot="top-banner" />
+        
       {/* Main Tool */}
+  
       <section className="py-16">
         <div className="container mx-auto px-4">
           {/* Tab Selector */}
@@ -110,14 +114,20 @@ export default function Home() {
               />
             )}
           </div>
-
+             
+{/* 🎯 AD PLACEMENT 2: Middle Banner */}
+          <AdBanner slot="middle-banner" />   
+             
           {/* Results */}
           {result && (
             <ResultDisplay result={result} type={activeTab} />
           )}
         </div>
       </section>
-
+             
+{/* 🎯 AD PLACEMENT 3: Pre-Features Banner */}
+      <AdBanner slot="pre-features" />
+             
       {/* Features Section */}
       <section id="features" className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
@@ -142,6 +152,9 @@ export default function Home() {
         </div>
       </section>
 
+{/* 🎯 AD PLACEMENT 4: Bottom Banner */}
+      <AdBanner slot="bottom-banner" />
+        
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
         <div className="container mx-auto px-4 text-center">
