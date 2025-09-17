@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Upload, Image, Loader } from 'lucide-react';
+import { Upload, Image, Loader, Zap } from 'lucide-react'; // ← FIXED: Added Zap
 import toast from 'react-hot-toast';
 
 export default function ImageUploader({ setProcessing, setResult, processing }) {
@@ -141,4 +141,5 @@ export default function ImageUploader({ setProcessing, setResult, processing }) 
       </div>
     </div>
   );
-}
+    }
+              
