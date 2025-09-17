@@ -1,3 +1,4 @@
+"use client"
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload, Image, Loader, Zap } from 'lucide-react'; // ← FIXED: Added Zap
