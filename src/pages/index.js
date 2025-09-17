@@ -4,6 +4,7 @@ import { Upload, Zap, Download, Star, Shield, Clock } from 'lucide-react';
 import ImageUploader from '../components/ImageUploader';
 import VideoUploader from '../components/VideoUploader';
 import ResultDisplay from '../components/ResultDisplay';
+import AdBanner from '../components/AdBanner';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('face');
