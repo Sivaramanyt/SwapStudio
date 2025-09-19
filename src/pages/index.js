@@ -1,4 +1,54 @@
 export default function Home() {
+  const handleFileUpload = (event, type) => {
+    const file = event.target.files[0];
+    const sourceInput = document.getElementById('source-upload');
+    const targetInput = document.getElementById('target-upload');
+    const button = document.getElementById('swap-button');
+    
+    // Update label for the uploaded file
+    const label = event.target.parentElement.querySelector('p');
+    if (file) {
+      label.innerHTML = `✅ ${file.name.substring(0, 15)}...`;
+      label.style.color = '#28a745';
+    }
+    
+    // Check if both files are uploaded
+    if (sourceInput.files.length > 0 && targetInput.files.length > 0) {
+      button.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+      button.innerHTML = '🚀 Start AI Processing';
+      button.onclick = processImages;
+    }
+  };
+
+  const processImages = () => {
+    const button = document.getElementById('swap-button');
+    button.innerHTML = '⏳ Processing... Please wait';
+    button.style.background = 'linear-gradient(135deg, #ffc107 0%, #fd7e14 100%)';
+    
+    setTimeout(() => {
+      alert('✅ Face swap completed! In a real app, this would show the blended result.');
+      
+      // Reset button
+      button.innerHTML = '🔄 Try Another Swap';
+      button.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+      button.onclick = () => {
+        // Reset everything
+        document.getElementById('source-upload').value = '';
+        document.getElementById('target-upload').value = '';
+        button.innerHTML = '⚡ Upload Both Images First';
+        button.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%)';
+        button.onclick = () => alert('Please upload both images first!');
+        
+        // Reset labels
+        const labels = document.querySelectorAll('label p');
+        labels[0].innerHTML = 'Upload Source Face';
+        labels[0].style.color = 'white';
+        labels[2].innerHTML = 'Upload Target Image';
+        labels[2].style.color = 'white';
+      };
+    }, 3000);
+  };
+
   return (
     <div style={{
       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -34,7 +84,7 @@ export default function Home() {
             gap: '1rem',
             marginBottom: '1.5rem'
           }}>
-              <div style={{
+            <div style={{
               background: 'rgba(255,255,255,0.1)',
               padding: '1.5rem',
               borderRadius: '8px',
@@ -47,6 +97,7 @@ export default function Home() {
                 accept="image/*" 
                 style={{ display: 'none' }} 
                 id="source-upload"
+                onChange={(e) => handleFileUpload(e, 'source')}
               />
               <label htmlFor="source-upload" style={{ cursor: 'pointer', display: 'block' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📤</div>
@@ -68,6 +119,7 @@ export default function Home() {
                 accept="image/*" 
                 style={{ display: 'none' }} 
                 id="target-upload"
+                onChange={(e) => handleFileUpload(e, 'target')}
               />
               <label htmlFor="target-upload" style={{ cursor: 'pointer', display: 'block' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🖼️</div>
@@ -76,7 +128,7 @@ export default function Home() {
               </label>
             </div>
           </div>
-                      
+          
           <button 
             id="swap-button"
             style={{
@@ -140,5 +192,5 @@ export default function Home() {
       </div>
     </div>
   );
-                  }
-                  
+               }
+          
