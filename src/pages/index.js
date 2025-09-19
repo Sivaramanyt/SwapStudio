@@ -4,7 +4,7 @@ export default function Home() {
       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       minHeight: '100vh',
-      padding: '2rem',
+      padding: '1rem',
       color: 'white'
     }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
@@ -16,6 +16,139 @@ export default function Home() {
           <p>High-quality results, secure processing, and completely free to use.</p>
         </div>
 
+        {/* Face Swap Section */}
+        <div style={{
+          background: 'rgba(255,255,255,0.1)',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid rgba(255,255,255,0.2)',
+          marginBottom: '2rem'
+        }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>📸 Face Swap</h3>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
+            marginBottom: '1.5rem'
+          }}>
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              padding: '1.5rem',
+              borderRadius: '8px',
+              border: '2px dashed rgba(255,255,255,0.3)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}>
+              <input type="file" accept="image/*" style={{ display: 'none' }} id="source-upload" />
+              <label htmlFor="source-upload" style={{ cursor: 'pointer', display: 'block' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📤</div>
+                <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', fontWeight: 'bold' }}>Upload Source Face</p>
+                <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.8rem', opacity: '0.8' }}>The face you want to use</p>
+              </label>
+            </div>
+            
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              padding: '1.5rem',
+              borderRadius: '8px',
+              border: '2px dashed rgba(255,255,255,0.3)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}>
+              <input type="file" accept="image/*" style={{ display: 'none' }} id="target-upload" />
+              <label htmlFor="target-upload" style={{ cursor: 'pointer', display: 'block' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🖼️</div>
+                <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', fontWeight: 'bold' }}>Upload Target Image</p>
+                <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.8rem', opacity: '0.8' }}>The image to modify</p>
+              </label>
+            </div>
+          </div>
+          
+          <button style={{
+            background: 'linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%)',
+            border: 'none',
+            color: 'white',
+            padding: '1rem 2rem',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(255, 107, 107, 0.3)',
+            transition: 'all 0.3s ease'
+          }} 
+          onClick={() => alert('Upload both images first! AI processing will start once you select two images.')}>
+            ⚡ Swap Faces
+          </button>
+        </div>
+
+        {/* Video Swap Section */}
+        <div style={{
+          background: 'rgba(255,255,255,0.1)',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid rgba(255,255,255,0.2)',
+          marginBottom: '2rem'
+        }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>🎬 Video Swap</h3>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
+            marginBottom: '1.5rem'
+          }}>
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              padding: '1.5rem',
+              borderRadius: '8px',
+              border: '2px dashed rgba(255,255,255,0.3)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}>
+              <input type="file" accept="image/*" style={{ display: 'none' }} id="video-source-upload" />
+              <label htmlFor="video-source-upload" style={{ cursor: 'pointer', display: 'block' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>👤</div>
+                <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', fontWeight: 'bold' }}>Upload Face Image</p>
+                <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.8rem', opacity: '0.8' }}>Face to swap into video</p>
+              </label>
+            </div>
+            
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              padding: '1.5rem',
+              borderRadius: '8px',
+              border: '2px dashed rgba(255,255,255,0.3)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}>
+              <input type="file" accept="video/*" style={{ display: 'none' }} id="video-target-upload" />
+              <label htmlFor="video-target-upload" style={{ cursor: 'pointer', display: 'block' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🎥</div>
+                <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', fontWeight: 'bold' }}>Upload Target Video</p>
+                <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.8rem', opacity: '0.8' }}>Max 100MB, MP4/MOV</p>
+              </label>
+            </div>
+          </div>
+          
+          <button style={{
+            background: 'linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%)',
+            border: 'none',
+            color: 'white',
+            padding: '1rem 2rem',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(78, 205, 196, 0.3)',
+            transition: 'all 0.3s ease'
+          }} 
+          onClick={() => alert('Upload face image and video first! Video processing takes 2-3 minutes.')}>
+            🎬 Swap Face in Video
+          </button>
+        </div>
+
+        {/* Feature Cards */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
@@ -28,7 +161,7 @@ export default function Home() {
             borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>🔒 Secure & Private</h3>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>🔒 Secure & Private</h4>
             <p>Your images are processed securely and deleted after 24 hours.</p>
           </div>
           
@@ -38,7 +171,7 @@ export default function Home() {
             borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>⚡ Fast Processing</h3>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>⚡ Fast Processing</h4>
             <p>Advanced AI processing delivers results in seconds, not minutes.</p>
           </div>
           
@@ -48,23 +181,9 @@ export default function Home() {
             borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>⭐ HD Quality</h3>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>⭐ HD Quality</h4>
             <p>Industry-leading AI models ensure natural, high-quality results.</p>
           </div>
-        </div>
-
-        <div style={{
-          marginTop: '3rem',
-          padding: '2rem',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '12px',
-          border: '1px solid rgba(255,255,255,0.2)'
-        }}>
-          <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem' }}>🚀 Coming Soon: Interactive Face Swap</h3>
-          <p>Upload your photos and videos to swap faces instantly!</p>
-          <p style={{ fontSize: '0.9rem', marginTop: '1rem', opacity: '0.8' }}>
-            Currently under development - check back soon for the full experience.
-          </p>
         </div>
 
         <footer style={{ marginTop: '3rem', opacity: '0.7', fontSize: '0.9rem' }}>
@@ -73,5 +192,5 @@ export default function Home() {
       </div>
     </div>
   );
-  }
+                    }
   
