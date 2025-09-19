@@ -34,7 +34,7 @@ export default function Home() {
             gap: '1rem',
             marginBottom: '1.5rem'
           }}>
-            <div style={{
+              <div style={{
               background: 'rgba(255,255,255,0.1)',
               padding: '1.5rem',
               borderRadius: '8px',
@@ -76,7 +76,7 @@ export default function Home() {
               </label>
             </div>
           </div>
-          
+                      
           <button 
             id="swap-button"
             style={{
@@ -140,4 +140,5 @@ export default function Home() {
       </div>
     </div>
   );
-}
+                  }
+                  
